@@ -14,7 +14,7 @@ public class Persona {
 
     public Persona(String nombre, String apellido, String dni, char sexo, int edad){
 
-        this.nombre=nombre;
+        setNombre(nombre);
         this.apellido=apellido;
         this.dni=dni;
         this.sexo=sexo;
@@ -27,7 +27,11 @@ public class Persona {
     }
 
     public void setNombre(String nombre){
-        this.nombre=nombre;
+        if (!nombre.equalsIgnoreCase("messi")){
+            this.nombre=nombre;
+        }else{
+            this.nombre="error";
+        }
     }
 
     public String getApellido(){
@@ -71,5 +75,4 @@ public class Persona {
         System.out.println(this.nombre + " " + this.apellido + " " + this.dni + " " + this.sexo + " " + this.edad);
 
     }
-
 }

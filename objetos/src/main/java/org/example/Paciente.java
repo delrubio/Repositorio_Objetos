@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Paciente {
 
-    public final static  char GENERO_DEF = 'X';
+    public final static char GENERO_DEF = 'X';
     public final static int BAJO_PESO = -1;
     public final static int PESO_IDEAL= 0;
     public final static int SOBRE_PESO = 1;
@@ -16,6 +16,7 @@ public class Paciente {
     private char genero;
     private double peso;
     private double altura;
+
 
     public Paciente(){
 //        this.genero=GENERO_DEF;
@@ -32,9 +33,7 @@ public class Paciente {
     public Paciente(String nombre, int edad, char genero, double peso, double altura){
         this.nombre=nombre;
         this.edad=edad;
-
         setGenero(genero);
-
         this.peso=peso;
         this.altura=altura;
         generarDni();
@@ -118,7 +117,7 @@ public class Paciente {
 
     private void comprobarGenero(char genero){
 
-        if (genero=='M' || genero=='H'){
+        if (genero=='M' || genero=='H' || genero=='m' || genero=='h'){
             this.genero=genero;
         }else {
             this.genero=GENERO_DEF;
@@ -126,8 +125,12 @@ public class Paciente {
 
     }
 
-    public void imprimirInfo(){
-        System.out.println(this.nombre + " " + this.edad + " " + this.genero + " " + this.altura + " " + this.altura + " " + this.peso + " " + this.dni);
-    }
+//    public void imprimirInfo(){
+//        System.out.println(this.nombre + " " + this.edad + " " + this.genero + " " + this.altura + " " + this.peso + " " + this.dni);
+//    }
 
+    @Override
+    public String toString(){
+        return "Paciente : [nombre=" + this.nombre + ", edad=" + this.edad + ", genero=" + this.genero + ", peso=" + this.peso + ", altura=" + this.altura + "]";
+    }
 }

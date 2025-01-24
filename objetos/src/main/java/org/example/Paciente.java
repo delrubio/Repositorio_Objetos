@@ -125,9 +125,9 @@ public class Paciente {
 
     }
 
-//    public void imprimirInfo(){
-//        System.out.println(this.nombre + " " + this.edad + " " + this.genero + " " + this.altura + " " + this.peso + " " + this.dni);
-//    }
+    public void imprimirInfo(){
+        System.out.println(this.nombre + " " + this.edad + " " + this.genero + " " + this.altura + " " + this.peso + " " + this.dni);
+    }
 
     @Override
     public String toString(){

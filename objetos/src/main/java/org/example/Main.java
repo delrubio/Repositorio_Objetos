@@ -82,9 +82,6 @@ public class Main {
 //        }else{
 //            System.out.println("MAL");
 //        }
-
-        Libro libro1 = new Libro("El principito", "Quevedo");
-
 //
 //    }
 //
@@ -114,6 +111,32 @@ public class Main {
 //            System.out.println("El paciente " + paciente.getNombre() + " no es mayor de edad.");
 //        }
 //
+        Libro libro1 = new Libro("El principito", "Quevedo");
+        Libro libro2 = new Libro("Mikel de la Era", "Hola");
+        Libro libro3 = new Libro("Cano", "Kassandra");
+
+        Estudiante estudiante1 = new Estudiante("Paco");
+        Estudiante estudiante2 = new Estudiante("Rafaela");
+        Estudiante estudiante3 = new Estudiante("Rafaela", "2 ESO", "mellamomiguel@gmail.com");
+        Estudiante estudiante4 = new Estudiante("Rafaela", "2 ESO", "mellamomiguel@alu.edu.gva.es");
+
+        System.out.println(libro1);
+        System.out.println(libro2);
+        System.out.println(libro3);
+
+        libro1.prestarLibro(estudiante3);
+        libro2.prestarLibro(estudiante4);
+
+        System.out.println(Libro.getLibrosDisponibles());
+
+        libro1.devolverLibro(estudiante3);
+
+        System.out.println(Libro.getLibrosDisponibles());
+
+        System.out.println(libro2.estaDisponible());
+
+        System.out.println(estudiante3);
+        System.out.println(estudiante4);
     }
 
 }

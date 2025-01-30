@@ -13,8 +13,9 @@ public class Libro {
     private String id;
     private boolean dispo;
     private Estudiante estudiantePrestado;
+    private Editorial editorial;
 
-    public Libro(String titulo, String autor){
+    public Libro(String titulo, String autor, Editorial editorial){
         this.titulo=titulo;
         this.autor=autor;
         this.id=calcularId();
@@ -22,6 +23,7 @@ public class Libro {
         cantidadLibros ++;
         librosDisponibles ++;
         estudiantePrestado=null;
+        this.editorial=editorial;
     }
 
     public static String calcularId(){
@@ -29,18 +31,22 @@ public class Libro {
         //ID_LIBROS es un prefijo que se aplica a todos, y el String.format los une con 2 ceros + el número de la cuenta
     }
 
-    public void prestarLibro(Estudiante estudiante){
+    public Prestamo prestarLibro(Estudiante estudiante){
         if (dispo && estudiante.getLibroprestado()==null) {
             dispo = false;
             System.out.println("Se ha prestado el libro " + titulo + " con éxito a " + estudiante.getNombre());
             librosDisponibles--;
             estudiantePrestado=estudiante;
             estudiante.setLibroprestado(this);
+            Prestamo prestamo = new Prestamo(estudiante, this);
+            System.out.println("Nuevo prestamo : " + prestamo);
+            return prestamo;
         } else if (estudiante.getLibroprestado()!=null){
             System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado.");
         } else{
             System.out.println("El libro " + titulo + " no se puede prestar. (No Disponible)");
         }
+        return null;
     }
 
     public void devolverLibro(Estudiante estudiante){
@@ -91,6 +97,14 @@ public class Libro {
         this.estudiantePrestado = estudiantePrestado;
     }
 
+    public Editorial getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(Editorial editorial) {
+        this.editorial = editorial;
+    }
+
     public Estudiante getEstudiantePrestado() {
         return estudiantePrestado;
     }
@@ -105,6 +119,6 @@ public class Libro {
 
     @Override
     public String toString(){
-        return "LIBRERÍA [Titulo = " + getTitulo() + ", Autor = " + getAutor() + ", ID = " + getId() + ", Disponibilidad = " + getDisponible() + ", Estudiante Prestado = " + getEstudiantePrestado() + "]";
+        return "LIBRERÍA [Titulo = " + getTitulo() + ", Autor = " + getAutor() + ", ID = " + getId() + ", Disponibilidad = " + getDisponible() + ", Estudiante Prestado = " + getEstudiantePrestado() + ", Ediotrial = " + getEditorial() +"]";
     }
 }

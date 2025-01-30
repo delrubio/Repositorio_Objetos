@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Estudiante {
 
     public static int contadorEstudiante = 0;
@@ -9,7 +11,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
-    private Libro libroprestado;
+    private ArrayList<Libro> librosPrestados;
 
     public Estudiante(String nombre, String curso, String email){
         this.nombre=nombre;
@@ -17,14 +19,14 @@ public class Estudiante {
         this.email=email;
         contadorEstudiante++;
         nia=contadorEstudiante;
-        libroprestado=null;
+        librosPrestados = new ArrayList<>();
     }
 
     public Estudiante(String nombre){
         this.nombre=nombre;
         contadorEstudiante++;
         nia=contadorEstudiante;
-        libroprestado=null;
+        librosPrestados = new ArrayList<>();
     }
 
     public static int obtenerTotalEstudiantes(){
@@ -63,18 +65,26 @@ public class Estudiante {
         this.email=email;
     }
 
-    public Libro getLibroprestado(){
-        return libroprestado;
+    public ArrayList<Libro> getLibrosPrestados(){
+        return librosPrestados;
     }
 
-    public void setLibroprestado(Libro libroprestado) {
-        this.libroprestado = libroprestado;
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public void insertarLibro(Libro libro){
+        librosPrestados.add(libro);
+    }
+
+    public void borrarLibro(Libro libro){
+        librosPrestados.remove(libro);
     }
 
     @Override
     public String toString() {
-        if (libroprestado != null) {
-            return "Estudiante: [nombre = " + getNombre() + ", curso = " + getCurso() + ", nia = " + this.nia + ", email = " + getEmail() + ", Libro Prestado = " + libroprestado.getTitulo() + "]";
+        if (!librosPrestados.isEmpty()) {
+            return "Estudiante: [nombre = " + getNombre() + ", curso = " + getCurso() + ", nia = " + this.nia + ", email = " + getEmail() + ", Libro Prestado = " + librosPrestados + "]";
         } else{
             return "Estudiante: [nombre = " + getNombre() + ", curso = " + getCurso() + ", nia = " + this.nia + ", email = " + getEmail() + "]";
         }

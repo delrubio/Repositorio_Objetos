@@ -1,7 +1,5 @@
 package org.example;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Libro {
 
     public static int cantidadLibros = 0;
@@ -24,6 +22,7 @@ public class Libro {
         librosDisponibles ++;
         estudiantePrestado=null;
         this.editorial=editorial;
+        editorial.insertarLibro(this);
     }
 
     public static String calcularId(){
@@ -32,17 +31,17 @@ public class Libro {
     }
 
     public Prestamo prestarLibro(Estudiante estudiante){
-        if (dispo && estudiante.getLibroprestado()==null) {
+        if (dispo && !estudiante.getLibrosPrestados().contains(this)) {
             dispo = false;
             System.out.println("Se ha prestado el libro " + titulo + " con éxito a " + estudiante.getNombre());
             librosDisponibles--;
             estudiantePrestado=estudiante;
-            estudiante.setLibroprestado(this);
+            estudiante.insertarLibro(this);
             Prestamo prestamo = new Prestamo(estudiante, this);
             System.out.println("Nuevo prestamo : " + prestamo);
             return prestamo;
-        } else if (estudiante.getLibroprestado()!=null){
-            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene un libro prestado.");
+        } else if (estudiante.getLibrosPrestados().contains(this)){
+            System.out.println("El estudiante " + estudiante.getNombre() + " ya tiene este libro.");
         } else{
             System.out.println("El libro " + titulo + " no se puede prestar. (No Disponible)");
         }
@@ -55,7 +54,7 @@ public class Libro {
             System.out.println("¡GRACIAS! Se ha devuelto el libro " + titulo + " con éxito por " + estudiantePrestado.getNombre());
             librosDisponibles++;
             estudiantePrestado=null;
-            estudiante.setLibroprestado(null);
+            estudiante.borrarLibro(this);
         }else{
             System.out.println("El libro " + titulo + " está disponible.");
         }

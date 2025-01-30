@@ -118,16 +118,24 @@ public class Main {
         Libro libro3 = new Libro("Cano", "Kassandra", editorial1);
 
         Estudiante estudiante1 = new Estudiante("Paco");
-        Estudiante estudiante2 = new Estudiante("Rafaela");
+        Estudiante estudiante2 = new Estudiante("Agustin", "4 ESO", "mellamomiguel@alu.edu.gva.es");
         Estudiante estudiante3 = new Estudiante("Rafaela", "2 ESO", "mellamomiguel@gmail.com");
-        Estudiante estudiante4 = new Estudiante("Rafaela", "2 ESO", "mellamomiguel@alu.edu.gva.es");
+
+        System.out.println(editorial1);
+
+        editorial1.insertarLibro(libro1);
 
         System.out.println(libro1);
         System.out.println(libro2);
         System.out.println(libro3);
 
+        System.out.println(estudiante1);
+        System.out.println(estudiante2);
+        System.out.println(estudiante3);
+
         Prestamo prestamo1 = libro1.prestarLibro(estudiante3);
-        libro2.prestarLibro(estudiante4);
+
+        libro2.prestarLibro(estudiante2);
 
         System.out.println(Libro.getLibrosDisponibles());
 
@@ -137,8 +145,16 @@ public class Main {
 
         System.out.println(libro2.estaDisponible());
 
+        System.out.println(estudiante2);
         System.out.println(estudiante3);
-        System.out.println(estudiante4);
+
+        System.out.println(prestamo1);
+
+//        Persona persona1 = new Persona("Javi", "Vazquez", "50508996F", 'M', 18);
+//        Equipo equipo1 = new Equipo("Real de Madrid");
+//
+//        equipo1.insertarIntegrante(persona1);
+//        System.out.println(equipo1);
     }
 
 }

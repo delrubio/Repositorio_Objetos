@@ -71,8 +71,8 @@ public class Persona {
 
     }
 
-    public void mostrarInfo(){
-        System.out.println(this.nombre + " " + this.apellido + " " + this.dni + " " + this.sexo + " " + this.edad);
-
+    @Override
+    public String toString(){
+        return this.nombre + " " + this.apellido + " " + this.dni + " " + this.sexo + " " + this.edad;
     }
 }

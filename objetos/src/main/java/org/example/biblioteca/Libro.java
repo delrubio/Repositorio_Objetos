@@ -1,4 +1,4 @@
-package org.example;
+package org.example.biblioteca;
 
 public class Libro {
 
@@ -118,6 +118,6 @@ public class Libro {
 
     @Override
     public String toString(){
-        return "LIBRERÍA [Titulo = " + getTitulo() + ", Autor = " + getAutor() + ", ID = " + getId() + ", Disponibilidad = " + getDisponible() + ", Estudiante Prestado = " + getEstudiantePrestado() + ", Ediotrial = " + getEditorial() +"]";
+        return "LIBRERÍA [Titulo = " + getTitulo() + ", Autor = " + getAutor() + ", ID = " + getId() + ", Disponibilidad = " + getDisponible() + ", Estudiante Prestado = " + estudiantePrestado.getNombre() + ", Ediotrial = " + editorial.getNombre() +"]";
     }
 }

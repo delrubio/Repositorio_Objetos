@@ -26,7 +26,7 @@ public class Libro {
     }
 
     public static String calcularId(){
-        return ID_LIBROS + String.format("%03d",cantidadLibros);
+            return ID_LIBROS + String.format("%03d",cantidadLibros);
         //ID_LIBROS es un prefijo que se aplica a todos, y el String.format los une con 2 ceros + el número de la cuenta
     }
 

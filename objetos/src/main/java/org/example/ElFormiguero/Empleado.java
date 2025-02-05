@@ -17,10 +17,15 @@ public class Empleado {
         setId();
         this.nombre=nombre;
         setCargo(cargo);
+        setDirector(this);
     }
 
     public String getDirector() {
-        return getId() + getNombre() + getCargo();
+        return getId() + " | " + getNombre();
+    }
+
+    public void setDirector(Empleado empleado) {
+        director = empleado;
     }
 
     public String getCargo() {
@@ -30,9 +35,7 @@ public class Empleado {
     public void setCargo(String cargo) {
         if (Arrays.asList(listaCargos).contains(cargo)){
             this.cargo=cargo;
-        } else if (cargo.matches("null")) {
-            this.cargo=cargo;
-        } else {
+        }else {
             this.cargo="pte";
         }
     }
@@ -50,7 +53,12 @@ public class Empleado {
     }
 
     public void setId() {
-        this.id=ID_EMPLEADO + String.format("%03d", numeroEmpleados++);
+        this.id=ID_EMPLEADO + String.format("%03d", ++numeroEmpleados);
+    }
+
+    @Override
+    public String toString(){
+        return "Empleado | Nombre: " + getNombre() + " | ID: " + getId() + " | Cargo: " + getCargo() + " | Director : " + getDirector();
     }
 
 }

@@ -53,9 +53,12 @@ public class Programa {
         Empleado nuevoEmpleado = new Empleado(nombre, cargo);
         listaEmpleados.add(nuevoEmpleado);
 
-        if (listaEmpleados.contains(nuevoEmpleado) && nuevoEmpleado.getCargo().matches("director")){
-            nuevoEmpleado.setCargo("null");
+        if (nuevoEmpleado.getCargo().equals("director")){
+            director=nuevoEmpleado;
+        }else {
+            nuevoEmpleado.setDirector(director);
         }
+
     }
 
     public ArrayList<Empleado> getListaEmpleados() {
@@ -75,5 +78,10 @@ public class Programa {
         System.out.println("¿Como se llama el Director de este programa?");
         String nombre = teclado.next();
         agregarEmpleados(nombre, "director");
+    }
+
+    @Override
+    public String toString(){
+        return getNombre() + " | Cadena: " + getCadena() + " | Temporada: " + getTemporadas() + " | Director: " + listaEmpleados;
     }
 }

@@ -1,0 +1,39 @@
+@startuml
+
+class Casa {
+    - String direccion
+    - List<Habitacion> habitaciones
+    - Propietario propietario
+    + Casa(String)
+    + void setPropietario()
+    + void agregarHabitacion(String, double)
+    + void eliminarHabitacion(String)
+    + void mostrarHabitaciones()
+    + Habitacion getHabitacionMasGrande()
+}
+
+class Habitacion {
+    - String nombre
+    - double metrosCuadrados
+    + Habitacion(String, double)
+    + String getNombre()
+    + double getMetrosCuadrados()
+    + void setMetrosCuadrados(double)
+    + String toString()
+}
+
+class Propietario {
+    - String nombre
+    - int edad
+    + Propietario(String, int)
+    + String getNombre()
+    + void setNombre(String)
+    + int getEdad()
+    + void setEdad(int)
+    + String toString()
+}
+
+Casa "1" *-- "*" Habitacion : contiene >
+Casa "1" *-- "1" Propietario : tiene >
+
+@enduml

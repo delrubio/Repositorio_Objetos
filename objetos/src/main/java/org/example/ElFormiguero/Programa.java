@@ -50,15 +50,21 @@ public class Programa {
     }
 
     public void agregarEmpleados(String nombre, String cargo) {
-        if (cargo.equals("director")){
-                    //tengo que agregar al director
-        }
         Empleado nuevoEmpleado = new Empleado(nombre, cargo);
         listaEmpleados.add(nuevoEmpleado);
+
+        if (listaEmpleados.contains(nuevoEmpleado) && nuevoEmpleado.getCargo().matches("director")){
+            nuevoEmpleado.setCargo("null");
+        }
     }
 
-    public void setListaInvitados(ArrayList<Invitado> listaInvitados) {
-        this.listaInvitados = listaInvitados;
+    public ArrayList<Empleado> getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public void agregarInvitado(String nombre, String profesion, int temporada) {
+        Invitado nuevoInvitado = new Invitado(nombre, profesion, temporada);
+        listaInvitados.add(nuevoInvitado);
     }
 
     public Empleado getDirector() {

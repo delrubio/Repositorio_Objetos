@@ -30,7 +30,9 @@ public class Empleado {
     public void setCargo(String cargo) {
         if (Arrays.asList(listaCargos).contains(cargo)){
             this.cargo=cargo;
-        }else {
+        } else if (cargo.matches("null")) {
+            this.cargo=cargo;
+        } else {
             this.cargo="pte";
         }
     }

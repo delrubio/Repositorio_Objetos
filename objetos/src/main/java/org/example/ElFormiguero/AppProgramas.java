@@ -16,23 +16,21 @@ public class AppProgramas {
         programa3.setCadena(cadena2);
 
         cadena.setPrograma(programa1);
-        cadena.setPrograma(programa2);
         cadena1.setPrograma(programa2);
         cadena2.setPrograma(programa3);
 
         cadena.setListaProgramas(programa1);
-        cadena.setListaProgramas(programa2);
         cadena1.setListaProgramas(programa2);
         cadena2.setListaProgramas(programa3);
-
-        System.out.println(programa1);
-        System.out.println(programa2);
-        System.out.println(programa3);
-
-        System.out.println(cadena);
-        System.out.println(cadena1);
-        System.out.println(cadena2);
 //
+//        System.out.println(programa1);
+//        System.out.println(programa2);
+//        System.out.println(programa3);
+//
+//        System.out.println(cadena);
+//        System.out.println(cadena1);
+//        System.out.println(cadena2);
+
 //        programa1.agregarEmpleados("Miguel", "técnico");
 //        programa1.agregarEmpleados("Maria", "técnico");
 //        programa1.agregarEmpleados("Alejandro", "presentador");
@@ -42,9 +40,13 @@ public class AppProgramas {
 //        programa2.agregarEmpleados("Maria", "técnico");
 //        programa2.agregarEmpleados("Alejandro", "presentador");
 //        programa2.agregarEmpleados("David", "colaborador");
-//
-//        System.out.println(programa1);
-//        System.out.println(" ");
-//        System.out.println(programa2);
+
+        programa1.agregarInvitado("Paco", "Estuiante", 1);
+
+        programa1.invitadosTemporada(1);
+
+        System.out.println(programa1);
+        System.out.println(" ");
+        System.out.println(programa2);
     }
 }

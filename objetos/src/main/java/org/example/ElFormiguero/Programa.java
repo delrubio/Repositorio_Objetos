@@ -82,7 +82,9 @@ public class Programa {
 
     public void invitadosTemporada(int temporadas){
         for (Invitado invitado : listaInvitados) {
-            System.out.println("Temporada: " + getTemporadas() + " | Invitado: " + invitado.getNombre() + ", profesión: " + invitado.getProfesión());
+            if (getTemporadas()==temporadas){
+                System.out.println("Temporada: " + getTemporadas() + " | Invitado: " + invitado.getNombre() + ", profesión: " + invitado.getProfesión());
+            }
         }
 
     }

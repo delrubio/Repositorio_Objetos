@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Invitado {
 
-    LocalDate fechaActual = LocalDate.now();
+    LocalDate fechaActual = LocalDate.now(); //cojo la decha de ahora
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;

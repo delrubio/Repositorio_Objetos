@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Cadena {
 
-    private String nombre;
-    private ArrayList<Programa>listaProgramas;
+    private String nombre; //necesitamos que la cadena tenga un nombre si o si.
+    private ArrayList<Programa>listaProgramas;//para poder tener registrados los programas
     private Programa programa;
 
-    public Cadena(String nombre){
+    public Cadena(String nombre){//con el constructor solo necesito el nombre
         this.nombre=nombre;
         listaProgramas=new ArrayList<>();
     }
@@ -25,7 +25,8 @@ public class Cadena {
         return listaProgramas;
     }
 
-    public void setListaProgramas(Programa programa) {
+    public void setListaProgramas(Programa programa) {//cuando en el Main le pongamos cadena.setListaprogramas añadimos
+                                                    // a la lista un objeto de tipo Programa como puede ser programa1.
         listaProgramas.add(programa);
     }
 
@@ -33,7 +34,7 @@ public class Cadena {
         return programa;
     }
 
-    public void setPrograma(Programa programa) {
+    public void setPrograma(Programa programa) {//para poder establecer un programa que quede constancia dentro de Cadena.
         this.programa = programa;
     }
 

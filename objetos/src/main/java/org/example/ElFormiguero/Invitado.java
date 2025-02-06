@@ -51,6 +51,6 @@ public class Invitado {
 
     @Override
     public String toString(){
-        return "Invitado: " + getNombre() + getProfesión() + getFecha_visita() + getTemporada();
+        return "Invitado: " + getNombre() + " " + getProfesión() + " " + getFecha_visita() + " " + getTemporada();
     }
 }

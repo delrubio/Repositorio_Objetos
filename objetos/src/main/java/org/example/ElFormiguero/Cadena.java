@@ -39,6 +39,6 @@ public class Cadena {
 
     @Override
     public String toString(){
-        return "Cadena: " + getNombre() + " | Programas: " + programa.getNombre();
+        return "Cadena: " + getNombre() + " | Programas: " + listaProgramas;
     }
 }

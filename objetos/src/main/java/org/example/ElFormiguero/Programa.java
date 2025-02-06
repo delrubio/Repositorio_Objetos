@@ -53,13 +53,17 @@ public class Programa {
         return listaEmpleados;
     }
 
+    public ArrayList<Invitado> getListaInvitados() {
+        return listaInvitados;
+    }
+
     public Empleado getDirector() {
         return director;
     }
 
     public void setDirector() {
         System.out.println("¿Quien es el director del programa: " + getNombre() +"?");
-        String nombre = teclado.next();
+        String nombre = teclado.nextLine();
         agregarEmpleados(nombre, "director");
     }
 
@@ -108,6 +112,6 @@ public class Programa {
 
     @Override
     public String toString(){
-        return getNombre() + " | Cadena: " + cadena + " | Temporada: " + getTemporadas() + " | Director: " + director.getNombre() + " " + listaEmpleados;
+        return getNombre() + " | Cadena: " + cadena + " | Temporada: " + getTemporadas() + " | Director: " + director.getNombre() + listaEmpleados + listaInvitados;
     }
 }

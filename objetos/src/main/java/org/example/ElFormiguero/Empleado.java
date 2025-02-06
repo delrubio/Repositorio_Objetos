@@ -11,6 +11,7 @@ public class Empleado {
     private String id;
     private String nombre;
     private String cargo;
+
     private Empleado director;
 
     public Empleado(String nombre, String cargo){
@@ -18,14 +19,6 @@ public class Empleado {
         this.nombre=nombre;
         setCargo(cargo);
         setDirector(this);
-    }
-
-    public String getDirector() {
-        return getId() + " | " + getNombre();
-    }
-
-    public void setDirector(Empleado empleado) {
-        director = empleado;
     }
 
     public String getCargo() {
@@ -37,6 +30,16 @@ public class Empleado {
             this.cargo=cargo;
         }else {
             this.cargo="pte";
+        }
+    }
+
+    public Empleado getDirector() {
+        return director;
+    }
+
+    public void setDirector(Empleado director) {
+        if (director.getCargo().equals("director")){
+            this.director=director;
         }
     }
 
@@ -58,7 +61,7 @@ public class Empleado {
 
     @Override
     public String toString(){
-        return "Empleado | Nombre: " + getNombre() + " | ID: " + getId() + " | Cargo: " + getCargo() + " | Director : " + getDirector();
+        return "Empleado | Nombre: " + getNombre() + " | ID: " + getId() + " | Cargo: " + getCargo() + " | Director : " + director.getNombre();
     }
 
 }

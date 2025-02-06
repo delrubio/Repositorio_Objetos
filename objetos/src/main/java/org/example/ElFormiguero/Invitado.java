@@ -48,4 +48,9 @@ public class Invitado {
     public void setTemporada(int temporada) {
         this.temporada = temporada;
     }
+
+    @Override
+    public String toString(){
+        return "Invitado: " + getNombre() + getProfesión() + getFecha_visita() + getTemporada();
+    }
 }

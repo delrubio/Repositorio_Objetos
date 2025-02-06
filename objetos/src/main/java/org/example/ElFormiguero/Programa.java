@@ -49,6 +49,25 @@ public class Programa {
         this.temporadas = temporadas;
     }
 
+    public ArrayList<Empleado> getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public Empleado getDirector() {
+        return director;
+    }
+
+    public void setDirector() {
+        System.out.println("¿Quien es el director del programa: " + getNombre() +"?");
+        String nombre = teclado.next();
+        agregarEmpleados(nombre, "director");
+    }
+
+    public void agregarInvitado(String nombre, String profesion, int temporada) {
+        Invitado nuevoInvitado = new Invitado(nombre, profesion, this.temporadas);
+        listaInvitados.add(nuevoInvitado);
+    }
+
     public void agregarEmpleados(String nombre, String cargo) {
         Empleado nuevoEmpleado = new Empleado(nombre, cargo);
         listaEmpleados.add(nuevoEmpleado);
@@ -61,27 +80,32 @@ public class Programa {
 
     }
 
-    public ArrayList<Empleado> getListaEmpleados() {
-        return listaEmpleados;
+    public void invitadosTemporada(int temporadas){
+        for (Invitado invitado : listaInvitados) {
+            System.out.println("Temporada: " + getTemporadas() + " | Invitado: " + invitado.getNombre() + ", profesión: " + invitado.getProfesión());
+        }
+
     }
 
-    public void agregarInvitado(String nombre, String profesion, int temporada) {
-        Invitado nuevoInvitado = new Invitado(nombre, profesion, temporada);
-        listaInvitados.add(nuevoInvitado);
+    public int vecesInvitado(String nombre){
+        int veces=0;
+        for (Invitado invitado : listaInvitados) {
+            if (invitado.getNombre().matches(nombre)){
+                veces++;
+            }
+        }
+        return veces;
     }
 
-    public Empleado getDirector() {
-        return director;
-    }
-
-    public void setDirector() {
-        System.out.println("¿Como se llama el Director de este programa?");
-        String nombre = teclado.next();
-        agregarEmpleados(nombre, "director");
+    public void rastrearInvitado(String nombre){
+        int veces = vecesInvitado(nombre);
+        for (Invitado invitado : listaInvitados){
+            System.out.println("Invitado: " + invitado.getNombre() + "Haido un total de " + (veces == 1?" vez" : veces + " veces") + ", el día " + invitado.getFecha_visita() + "y la temporada" + invitado.getTemporada());
+        }
     }
 
     @Override
     public String toString(){
-        return getNombre() + " | Cadena: " + getCadena() + " | Temporada: " + getTemporadas() + " | Director: " + listaEmpleados;
+        return getNombre() + " | Cadena: " + cadena + " | Temporada: " + getTemporadas() + " | Director: " + director.getNombre() + " " + listaEmpleados;
     }
 }

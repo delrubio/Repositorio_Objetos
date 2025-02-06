@@ -6,9 +6,11 @@ public class Cadena {
 
     private String nombre;
     private ArrayList<Programa>listaProgramas;
+    private Programa programa;
 
     public Cadena(String nombre){
         this.nombre=nombre;
+        listaProgramas=new ArrayList<>();
     }
 
     public String getNombre() {
@@ -23,7 +25,20 @@ public class Cadena {
         return listaProgramas;
     }
 
-    public void setListaProgramas(ArrayList<Programa> listaProgramas) {
-        this.listaProgramas = listaProgramas;
+    public void setListaProgramas(Programa programa) {
+        listaProgramas.add(programa);
+    }
+
+    public Programa getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(Programa programa) {
+        this.programa = programa;
+    }
+
+    @Override
+    public String toString(){
+        return "Cadena: " + getNombre() + " | Programas: " + programa.getNombre();
     }
 }

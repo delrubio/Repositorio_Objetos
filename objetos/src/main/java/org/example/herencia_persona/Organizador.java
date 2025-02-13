@@ -8,4 +8,16 @@ public class Organizador extends Persona{
         super(nombre, edad);
         this.rol=rol;
     }
+
+    @Override
+    public void mostrarInfo() {
+        super.mostrarInfo();
+        System.out.println("Rol: " + rol);
+    }
+
+    @Override
+    public void accederEvento() {
+        super.accederEvento();
+        System.out.println("Accediendo como Organizador: Coordinando el evento.");
+    }
 }

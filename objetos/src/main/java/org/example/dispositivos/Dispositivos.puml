@@ -1,0 +1,40 @@
+@startuml
+abstract class Dispositivos {
+    - String nombre
+    - boolean estado
+    + Dispositivos(String nombre)
+    + void encender() <<abstract>>
+    + void apagar()
+    + boolean getEstado()
+    + void setEstado()
+    + String getNombre()
+    + void mostrarEstado()
+}
+
+interface ControlRemoto {
+    + void sincronizar()
+}
+
+class Televisor {
+    + Televisor(String nombre)
+    + void encender()
+    + void sincronizar()
+}
+
+class ParlanteInteligente {
+    + ParlanteInteligente(String nombre)
+    + void encender()
+}
+
+class AireAcondicionado {
+    + AireAcondicionado(String nombre)
+    + void encender()
+    + void sincronizar()
+}
+
+Dispositivos <|-- Televisor
+Dispositivos <|-- ParlanteInteligente
+Dispositivos <|-- AireAcondicionado
+ControlRemoto <|.. Televisor
+ControlRemoto <|.. AireAcondicionado
+@enduml

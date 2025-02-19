@@ -17,7 +17,16 @@ public class PokedexApp {
         Pokemon[] pokemos = {new Agua(54), new Fuego(74), new Electrico(81)};
         for (Pokemon pok: pokemos){
             pok.atacar();
+
+            if (pok instanceof AtaquesAgua){
+                ((AtaquesAgua) pok).hidroBomba();
+                ((AtaquesAgua) pok).sur();
+            }
         }
+
+        Agua squitle = new Agua(500);
+
+        squitle.pistolaAgua();
 
     }
 }

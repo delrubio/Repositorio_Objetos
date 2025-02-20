@@ -1,4 +1,4 @@
-package org.example.dispositivos;
+package org.example.abstract_dispositivos;
 
 public class ParlanteInteligente extends Dispositivos{
 
@@ -11,7 +11,7 @@ public class ParlanteInteligente extends Dispositivos{
             System.out.println("Alexa ya está conectada.");
         }else{
             System.out.println("Activando Alexa con comando de voz...");
-            setEstado();
+            setEstado(true);
         }
     }
 }

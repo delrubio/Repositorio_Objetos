@@ -1,4 +1,4 @@
-package org.example.dispositivos;
+package org.example.abstract_dispositivos;
 
 public class Televisor extends Dispositivos implements ControlRemoto{
 
@@ -11,7 +11,7 @@ public class Televisor extends Dispositivos implements ControlRemoto{
             System.out.println("El Televisore ya está encendido");
         }else {
             System.out.println("Encendiendo el Televisor...");
-            setEstado();
+            setEstado(true);
         }
     }
 

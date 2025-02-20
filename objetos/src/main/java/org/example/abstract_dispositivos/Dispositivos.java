@@ -1,4 +1,4 @@
-package org.example.dispositivos;
+package org.example.abstract_dispositivos;
 
 public abstract class Dispositivos {
 
@@ -25,8 +25,8 @@ public abstract class Dispositivos {
         return estado;
     }
 
-    public void setEstado() {
-        estado=true;
+    public void setEstado(boolean estado) {
+        this.estado=estado;
     }
 
     public String getNombre() {

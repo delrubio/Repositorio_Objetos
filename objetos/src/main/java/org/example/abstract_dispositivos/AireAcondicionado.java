@@ -1,4 +1,4 @@
-package org.example.dispositivos;
+package org.example.abstract_dispositivos;
 
 public class AireAcondicionado extends Dispositivos implements ControlRemoto{
     public AireAcondicionado(String nombre) {
@@ -14,7 +14,7 @@ public class AireAcondicionado extends Dispositivos implements ControlRemoto{
             System.out.println("El aire acondicionado ya está encendido.");
         }else {
             System.out.println("Encendiendo el aire acondicionado...");
-            setEstado();
+            setEstado(true);
         }
     }
 }

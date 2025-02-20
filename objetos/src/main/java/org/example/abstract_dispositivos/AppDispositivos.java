@@ -60,6 +60,6 @@ public class AppDispositivos {
             disp.mostrarEstado();
             disp.apagar();
         }
-        
+
     }
 }

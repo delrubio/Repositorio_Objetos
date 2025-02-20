@@ -1,0 +1,71 @@
+@startuml
+
+' Clase abstracta MetodoPago
+abstract class MetodoPago {
+    - double importe
+    + MetodoPago(double importe)
+    + procesarPago(double importe) : void
+}
+
+' Clase PayPal
+class PayPal {
+    + static final String cuentaPaypal
+    + static final double saldoInicial
+    - String cuenta
+    - double saldo
+    - Scanner teclado
+    + PayPal(double importe)
+    + procesarPago(double importe) : void
+    + validarPayPal(double importe) : void
+}
+
+' Clase TarjetaCredito
+class TarjetaCredito {
+    + static String[] listaTarjetas
+    - String nro_tarjeta
+    - String tarjeta
+    - int pin
+    - Scanner teclado
+    - Random random
+    + TarjetaCredito(double importe)
+    + procesarPago(double importe) : void
+}
+
+' Clase Bizum
+class Bizum {
+    - String telefono
+    - int pin
+    - Scanner teclado
+    - Random random
+    + Bizum(double importe)
+    + procesarPago(double importe) : void
+    + validarBizum() : void
+}
+
+' Clase Tienda
+class Tienda {
+    - MetodoPago metodo
+    - static double importe
+    - static int eleccion
+    - static Scanner teclado
+    + iniciarPago() : void
+    + realizarPago(MetodoPago metodo, double importe) : void
+}
+
+' Relaciones de herencia
+MetodoPago <|-- PayPal
+MetodoPago <|-- TarjetaCredito
+MetodoPago <|-- Bizum
+
+' Asociación: Tienda utiliza MetodoPago
+Tienda --> MetodoPago : usa
+
+' Dependencias con clases auxiliares
+TarjetaCredito ..> Random
+TarjetaCredito ..> Scanner
+PayPal ..> Scanner
+Bizum ..> Scanner
+Bizum ..> Random
+Tienda ..> Scanner
+
+@enduml

@@ -21,49 +21,43 @@ public class TarjetaCredito extends MetodoPago {
     }
 
     public void procesarPago(double importe) {
-        validarTipo(importe);
-        validarNumTarjeta();
-        validarPin();
 
-    }
-
-    public void validarTipo(double importe){
-
+        //PIDO EL TIPO DE TAJETA Y LO CONVIERTO EN MAYUSCULAS PARA AHORRAR PROBLEMAS
         System.out.println("¿Que tipo de tarjeta vas a utilizar?");
-        tarjeta= teclado.next();
+        tarjeta=teclado.next().toUpperCase();
 
+        //SI ESTÁ EN LA LISTA, COMENZAMOS CON EL PAGO
         if (Arrays.asList(listaTarjetas).contains(tarjeta)){
             System.out.println("Procesando pago de " + importe + "€, con tarjeta de " + tarjeta);
         }else {
             System.out.println("ERROR. Tipo de tarjeta desconocido");
+            System.exit(1);
         }
 
-    }
-
-    public void validarNumTarjeta(){
-
+        //PIDO EL NÚMERO DE LA TARJETA
         System.out.println("Número de la tarjeta");
         nro_tarjeta= teclado.next();
-
+        //AL SER STRING LO MIRO CON EL MATCHES Y QUE SEAN 16 DÍGITOS
         if (!nro_tarjeta.matches("\\d{16}")){
             System.out.println("ERROR. El número de la tarjeta no es correcto");
+            System.exit(1);
         }
-    }
 
-    public void validarPin(){
-
-        int randompin = random.nextInt(9000) + 1000;
+        //CREO UN PIN RANDOM DE 6 DÍGITOS
+        int randompin = random.nextInt(900000) + 100000;
 
         System.out.println(randompin);
-
-        System.out.println("Dime el PIN de la tarjeta - 4 dígitos");
+        System.out.println("Dime el PIN de la tarjeta - 6 dígitos");
         pin = teclado.nextInt();
-
         System.out.println("Procesando pago...");
+
+        //SI COINCIDE EL PIN CON EL QUE HE CREADO BIEN Y SI NO MAL.
         if (randompin==pin){
             System.out.println("Transacción completa!");
         }else {
             System.out.println("Transacción fallida!");
         }
+
     }
+
 }

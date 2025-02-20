@@ -1,41 +1,46 @@
 package org.example.ecommerce;
 
+import java.util.Scanner;
+
 public class PayPal extends MetodoPago{
 
-    public static String cuentaPaypal = "^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
+    public static final String cuentaPaypal = "^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
     public static final double saldoInicial = 23;
 
     private String cuenta;
     private double saldo;
 
+    Scanner teclado =new Scanner(System.in);
+
     public PayPal(double importe) {
         super(importe);
-        procesarPago(importe);
         saldo=saldoInicial;
-    }
-
-    public PayPal(double importe, String cuenta, double saldo){
-        super (importe);
         procesarPago(importe);
-        this.saldo=saldo;
-        validarPayPal(cuenta, importe);
     }
 
+    //COMENZAMOS EL PAGO
     public void procesarPago(double importe) {
         System.out.println("Procesando pago de " + importe + "€ con PayPal...");
+        validarPayPal(importe);
     }
 
-    public void validarPayPal(String cuenta, double importe){
+    public void validarPayPal(double importe){
+        System.out.println("Dime tu cuenta de PayPal: ...@alu.edu.gva.es");
+        cuenta=teclado.next();
+
+        //MIRAMOS QUE EL FORMATO DEL CORREO COINCIDA CON LA VARIABLE GLOBAL QUE HE CREADO
         if (cuenta.matches(cuentaPaypal)){
-            if (saldo>=importe){
-                saldo-=importe;
+
+            //SI ES CORRECTO EL FORMATO, MIRAMOS QUE HAYA SALDO SUFICIENTE
+            if (saldo>importe){
+                saldo-=importe;//RESTO EL SALDO
                 System.out.println("El pago se ha realizado correctamente.");
                 System.out.println("Actualizando saldo...");
-                System.out.println("Saldo actual: " + saldo);
-            }else {
+                System.out.println("Saldo actual: " + saldo + "€");//MUESTRO EL SALDO ACTUAL
+            }else {//SI NO HAY SALDO DA ERROR
                 System.out.println("ERROR. No tienes saldo suficiente.");
             }
-        }else {
+        }else {//SI EL FORMATO DEL CORREO ES INCORRECTO DA ERROR
             System.out.println("ERROR. El formato de cuenta no es correcto.");
         }
     }

@@ -21,7 +21,6 @@ public class TarjetaCredito extends MetodoPago {
     }
 
     public void procesarPago(double importe) {
-
         //PIDO EL TIPO DE TAJETA Y LO CONVIERTO EN MAYUSCULAS PARA AHORRAR PROBLEMAS
         System.out.println("¿Que tipo de tarjeta vas a utilizar?");
         tarjeta=teclado.next().toUpperCase();
@@ -33,7 +32,11 @@ public class TarjetaCredito extends MetodoPago {
             System.out.println("ERROR. Tipo de tarjeta desconocido");
             System.exit(1);
         }
+        validarTarjeta();
 
+    }
+
+    public void validarTarjeta(){
         //PIDO EL NÚMERO DE LA TARJETA
         System.out.println("Número de la tarjeta");
         nro_tarjeta= teclado.next();
@@ -57,7 +60,5 @@ public class TarjetaCredito extends MetodoPago {
         }else {
             System.out.println("Transacción fallida!");
         }
-
     }
-
 }

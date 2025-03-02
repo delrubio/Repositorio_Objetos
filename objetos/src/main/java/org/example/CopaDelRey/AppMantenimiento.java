@@ -53,11 +53,13 @@ public class AppMantenimiento {
         }
     }
 
+    //cojo todos los jugadores que me metan en el main de AppMutxamelFC y los meto en la lista
     public static void setLista_jugadores(Jugador... jugador){
         lista_jugadores = new ArrayList<>();
         lista_jugadores.addAll(List.of(jugador));
     }
 
+    //metodo para imprimir la lista de jugadores
     public static void listaJugadores(){
         int cont = 0;
         for (Jugador jugador : lista_jugadores){
@@ -109,6 +111,8 @@ public class AppMantenimiento {
         System.out.println("Dorsal: ");
         int cont = 0;
         int dor = 0;
+
+        //compruebo que el jugador no tenga el mismo dorsal y no juege en la misma categoría
         for (Jugador jugador : lista_jugadores){
             if (jugador.getDorsal()== teclado.nextInt() && jugador.getCategoria().equals(lista_jugadores.get(cont).getCategoria())){
                 System.out.println("ERROR. Ese dorsal ya está cogido.");
@@ -119,6 +123,8 @@ public class AppMantenimiento {
             }
             cont++;
         }
+
+
         System.out.println("Posición: ");
         String pos = teclado.next().toUpperCase();
 
@@ -142,19 +148,19 @@ public class AppMantenimiento {
         System.out.println("Modificando " + lista_jugadores.get(opc1));
 
         switch (opc2){
-            case "NOMBRE":
+            case "NOMBRE": //meto el nombre nuevo a pelo
                 System.out.println("Dime el nuevo nombre > ");
                 lista_jugadores.get(opc1).setNombre(teclado.next());
                 break;
-            case "EDAD":
+            case "EDAD": //meto la edad nueva a pelo
                 System.out.println("Dime la nueva edad >");
                 lista_jugadores.get(opc1).setEdad(teclado.nextInt());
                 break;
-            case "CATEGORIA":
+            case "CATEGORIA": //meto la categoría nueva a pelo
                 System.out.println("Dime la categoría > ");
                 lista_jugadores.get(opc1).setCategoria(teclado.next());
                 break;
-            case "DORSAL":
+            case "DORSAL": //vuelvo a comprobar lo del dorsal
                 System.out.println("Dime el nuevo dorsal > ");
                 for (Jugador jugador : lista_jugadores){
                     if (jugador.getDorsal()== teclado.nextInt() && jugador.getCategoria().equals(lista_jugadores.get(opc1).getCategoria())){
@@ -166,7 +172,7 @@ public class AppMantenimiento {
                     }
                 }
                 break;
-            case "POSICION":
+            case "POSICION": //meto la posicion nueva a pelo
                 System.out.println("Dime la nueva posicion > ");
                 lista_jugadores.get(opc1).setPosicion(teclado.next());
                 break;
@@ -187,6 +193,7 @@ public class AppMantenimiento {
         System.out.println("Selecciona una opción > ");
         int opc1 = teclado.nextInt();
 
+        //compruebo el jugador juega con los SENIOR
         if (!lista_jugadores.get(opc1).getCategoria().equals(Equipos.SENIOR)){
             System.out.println("ERROR. Solo pueden acompañarse los SENIORS.");
             System.exit(1);

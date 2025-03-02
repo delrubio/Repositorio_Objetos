@@ -11,6 +11,7 @@ public class Masajista extends MutxamelFC {
         this.anyosExperiencia=anyosExperiencia;
     }
 
+    //decimos a quien le estamos dando un masaje
     public void darMasaje(Jugador jugador){
         System.out.println(jugador.imprimirNombre() + " me ha dicho que le descarge el quadriceps.");
     }

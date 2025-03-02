@@ -18,6 +18,7 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     public void setCategoria(String cat){
 
+        //cuando haga un set, comprueba si la categoría existe
         for (Equipos categoria1 : Equipos.values()){
             if (cat.toUpperCase().equals(categoria1.name())){
                 categoria=categoria1;
@@ -25,6 +26,7 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
         }
     }
 
+    //cuando haga un set comnprueba si la posición existe
     public void setPosicion(String pos){
 
         for (Posiciones posiciones1 : Posiciones.values()){

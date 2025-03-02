@@ -24,6 +24,7 @@ public class AppMutxamelFC {
 //        acompañante.viajar("Ciudad Real");
     }
 
+    //lo utilizo parapoderiniciar la lista de todos los jugadores que creamos aquí
     public static void iniciarMantenimiento(Jugador... jugador){
         AppMantenimiento.setLista_jugadores(jugador);
         AppMantenimiento.main();

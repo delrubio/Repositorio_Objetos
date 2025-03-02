@@ -1,14 +1,21 @@
 package org.example.CopaDelRey;
 
+import lombok.Data;
+
+@Data
 public class Acompañante extends MutxamelFC{
 
-    private Jugador integrante;
+    private Jugador jugador;
     private String parentesco;
 
-    public Acompañante(String nombre, int edad, Jugador integrante, String parentesco) {
+    public Acompañante(String nombre, int edad, Jugador jugador, String parentesco) {
         super(nombre, edad);
-        this.integrante=integrante;
+        this.jugador=jugador;
         this.parentesco=parentesco;
+    }
+
+    public void animarEquipo(){
+        System.out.println("ANIMO!" + jugador.getCategoria());
     }
 
     @Override
@@ -23,6 +30,6 @@ public class Acompañante extends MutxamelFC{
 
     @Override
     public void celebrarGol() {
-        System.out.println("Vaya GOLAZO que ha marcado mi " + parentesco + " " + integrante.getNombre());
+        System.out.println("Vaya GOLAZO que ha marcado mi " + parentesco + " " + jugador.imprimirNombre());
     }
 }

@@ -13,4 +13,19 @@ public abstract class MutxamelFC implements FuncionesIntegrantes {
         this.edad=edad;
     }
 
+    public String imprimirNombre(){
+        return nombre;
+    }
+
+    public int imprimirEdad(){
+        return edad;
+    }
+
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+
+    public void setEdad(int edad){
+        this.edad=edad;
+    }
 }

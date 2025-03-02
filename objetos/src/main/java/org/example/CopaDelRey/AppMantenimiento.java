@@ -163,12 +163,13 @@ public class AppMantenimiento {
             case "DORSAL": //vuelvo a comprobar lo del dorsal
                 System.out.println("Dime el nuevo dorsal > ");
                 for (Jugador jugador : lista_jugadores){
-                    if (jugador.getDorsal()== teclado.nextInt() && jugador.getCategoria().equals(lista_jugadores.get(opc1).getCategoria())){
+                    if (jugador.getDorsal() == teclado.nextInt() && jugador.getCategoria().equals(lista_jugadores.get(opc1).getCategoria())){
                         System.out.println("ERROR. Ese dorsal ya está cogido.");
                         System.out.println("Estás siendo redirigido...");
                         modifJugadores();
                     }else{
                         lista_jugadores.get(opc1).setDorsal(teclado.nextInt());
+                        break;
                     }
                 }
                 break;
